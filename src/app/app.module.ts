@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+
+import { AppComponent, ToastComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToastComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    OverlayModule,
   ],
+  entryComponents: [ToastComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
