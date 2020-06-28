@@ -1,12 +1,10 @@
-import { Component, ViewContainerRef } from '@angular/core';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { Component } from "@angular/core";
+import { Overlay, OverlayConfig } from "@angular/cdk/overlay";
+import { ComponentPortal } from "@angular/cdk/portal";
 
 @Component({
-  selector: 'app-toast',
-  template: `
-    <div>This is a toast message</div>
-  `,
+  selector: "app-toast",
+  template: ` <div>This is a toast message</div> `,
   styles: [
     `
       :host {
@@ -19,17 +17,14 @@ import { ComponentPortal } from '@angular/cdk/portal';
 export class ToastComponent {}
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'overlay-example';
+  title = "overlay-example";
 
-  constructor(
-    private overlay: Overlay,
-    private viewContainerRef: ViewContainerRef
-  ) {}
+  constructor(private overlay: Overlay) {}
 
   show(): void {
     const config = new OverlayConfig({
@@ -46,8 +41,6 @@ export class AppComponent {
       overlayRef.dispose();
     });
 
-    overlayRef.attach(
-      new ComponentPortal(ToastComponent, this.viewContainerRef)
-    );
+    overlayRef.attach(new ComponentPortal(ToastComponent));
   }
 }
